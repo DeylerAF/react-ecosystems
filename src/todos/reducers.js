@@ -35,25 +35,22 @@ export const todos = (state = [], action) => {
         }
         case REMOVE_TODO: {
             const { text } = payload;
-            return state.filter((todo) => todo.text !== text);
+            return state.filter(todo => todo.text !== text);
         }
         case MARK_TODO_AS_COMPLETED: {
             const { text } = payload;
-            return state.map((todo) => {
+            return state.map(todo => {
                 if (todo.text === text) {
-                    return {
-                        ...todo,
-                        isCompleted: true,
-                    };
+                    return { ...todo, isCompleted: true };
                 }
                 return todo;
             });
         }
-        case LOAD_TODOS_IN_PROGRESS: {
+        case LOAD_TODOS_SUCCESS: {
             const { todos } = payload;
             return todos;
         }
-        case LOAD_TODOS_SUCCESS:
+        case LOAD_TODOS_IN_PROGRESS:
         case LOAD_TODOS_FAILURE:
         default:
             return state;
