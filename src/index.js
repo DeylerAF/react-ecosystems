@@ -9,12 +9,11 @@ import App from "./App";
 const store = configureStore();
 const persistor = persistStore(store);
 
-
 ReactDOM.render(
-    <Provider store={store}>
-        <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
-            <App />
-        </PersistGate>
-    </Provider>,
-    document.getElementById("root"),
+  <Provider store={store}>
+    <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
+  document.getElementById("root")
 );
